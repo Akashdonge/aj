@@ -35,7 +35,7 @@ public class RepresentativeApp implements ActionListener {
         jf.setLayout(new GridLayout(6, 2));
 
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SalesDB", "root", "Akashd@123");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SalesDB", "root", "Akashise@15");
         } catch (SQLException e) {
             e.printStackTrace();
         }
