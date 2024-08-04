@@ -42,55 +42,55 @@ public class RepresentativeApp implements ActionListener {
         }
     }
 
-    // public void actionPerformed(ActionEvent ae) {
-    //     if (ae.getSource() == submit) {
-    //         try {
-    //             int repNo = Integer.parseInt(jt1.getText());
-    //             String repName = jt2.getText();
-    //             String state = jt3.getText();
-    //             double commission = Double.parseDouble(jt4.getText());
-    //             double rate = Double.parseDouble(jt5.getText());
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == submit) {
+            try {
+                int repNo = Integer.parseInt(jt1.getText());
+                String repName = jt2.getText();
+                String state = jt3.getText();
+                double commission = Double.parseDouble(jt4.getText());
+                double rate = Double.parseDouble(jt5.getText());
 
-    //             String query = "INSERT INTO Representative VALUES (?, ?, ?, ?, ?)";
-    //             st = con.prepareStatement(query);
-    //             st.setInt(1, repNo);
-    //             st.setString(2, repName);
-    //             st.setString(3, state);
-    //             st.setDouble(4, commission);
-    //             st.setDouble(5, rate);
-    //             st.executeUpdate();
-    //         } catch (SQLException e) {
-    //             e.printStackTrace();
-    //         }
-    //     } else if (ae.getSource() == display) {
-    //         try {
-    //             String query = "SELECT * FROM Representative";
-    //             st = con.prepareStatement(query);
-    //             rs = st.executeQuery();
-    //             JFrame displayFrame = new JFrame("Representative Data");
-    //             displayFrame.setLayout(new GridLayout(0, 5));
+                String query = "INSERT INTO Representative VALUES (?, ?, ?, ?, ?)";
+                st = con.prepareStatement(query);
+                st.setInt(1, repNo);
+                st.setString(2, repName);
+                st.setString(3, state);
+                st.setDouble(4, commission);
+                st.setDouble(5, rate);
+                st.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else if (ae.getSource() == display) {
+            try {
+                String query = "SELECT * FROM Representative";
+                st = con.prepareStatement(query);
+                rs = st.executeQuery();
+                JFrame displayFrame = new JFrame("Representative Data");
+                displayFrame.setLayout(new GridLayout(0, 5));
 
-    //             displayFrame.add(new JLabel("RepNo"));
-    //             displayFrame.add(new JLabel("RepName"));
-    //             displayFrame.add(new JLabel("State"));
-    //             displayFrame.add(new JLabel("Commission"));
-    //             displayFrame.add(new JLabel("Rate"));
+                displayFrame.add(new JLabel("RepNo"));
+                displayFrame.add(new JLabel("RepName"));
+                displayFrame.add(new JLabel("State"));
+                displayFrame.add(new JLabel("Commission"));
+                displayFrame.add(new JLabel("Rate"));
 
-    //             while (rs.next()) {
-    //                 displayFrame.add(new JLabel(String.valueOf(rs.getInt("RepNo"))));
-    //                 displayFrame.add(new JLabel(rs.getString("RepName")));
-    //                 displayFrame.add(new JLabel(rs.getString("State")));
-    //                 displayFrame.add(new JLabel(String.valueOf(rs.getDouble("Commission"))));
-    //                 displayFrame.add(new JLabel(String.valueOf(rs.getDouble("Rate"))));
-    //             }
+                while (rs.next()) {
+                    displayFrame.add(new JLabel(String.valueOf(rs.getInt("RepNo"))));
+                    displayFrame.add(new JLabel(rs.getString("RepName")));
+                    displayFrame.add(new JLabel(rs.getString("State")));
+                    displayFrame.add(new JLabel(String.valueOf(rs.getDouble("Commission"))));
+                    displayFrame.add(new JLabel(String.valueOf(rs.getDouble("Rate"))));
+                }
 
-    //             displayFrame.setSize(500, 400);
-    //             displayFrame.setVisible(true);
-    //         } catch (SQLException e) {
-    //             e.printStackTrace();
-    //         }
-    //     }
-    // }
+                displayFrame.setSize(500, 400);
+                displayFrame.setVisible(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static void main(String[] args) {
         new RepresentativeApp();
