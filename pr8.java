@@ -36,51 +36,51 @@ public class CustomerApp implements ActionListener {
         }
     }
 
-    // public void actionPerformed(ActionEvent ae) {
-    //     if (ae.getSource() == submit) {
-    //         try {
-    //             int custNo = Integer.parseInt(jt1.getText());
-    //             String custName = jt2.getText();
-    //             String state = jt3.getText();
-    //             double creditLimit = Double.parseDouble(jt4.getText());
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == submit) {
+            try {
+                int custNo = Integer.parseInt(jt1.getText());
+                String custName = jt2.getText();
+                String state = jt3.getText();
+                double creditLimit = Double.parseDouble(jt4.getText());
 
-    //             String query = "INSERT INTO Customer VALUES (?, ?, ?, ?)";
-    //             st = con.prepareStatement(query);
-    //             st.setInt(1, custNo);
-    //             st.setString(2, custName);
-    //             st.setString(3, state);
-    //             st.setDouble(4, creditLimit);
-    //             st.executeUpdate();
-    //         } catch (SQLException e) {
-    //             e.printStackTrace();
-    //         }
-    //     } else if (ae.getSource() == display) {
-    //         try {
-    //             String query = "SELECT * FROM Customer";
-    //             st = con.prepareStatement(query);
-    //             rs = st.executeQuery();
-    //             JFrame displayFrame = new JFrame("Customer Data");
-    //             displayFrame.setLayout(new GridLayout(0, 4));
+                String query = "INSERT INTO Customer VALUES (?, ?, ?, ?)";
+                st = con.prepareStatement(query);
+                st.setInt(1, custNo);
+                st.setString(2, custName);
+                st.setString(3, state);
+                st.setDouble(4, creditLimit);
+                st.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else if (ae.getSource() == display) {
+            try {
+                String query = "SELECT * FROM Customer";
+                st = con.prepareStatement(query);
+                rs = st.executeQuery();
+                JFrame displayFrame = new JFrame("Customer Data");
+                displayFrame.setLayout(new GridLayout(0, 4));
 
-    //             displayFrame.add(new JLabel("CustNo"));
-    //             displayFrame.add(new JLabel("CustName"));
-    //             displayFrame.add(new JLabel("State"));
-    //             displayFrame.add(new JLabel("Credit Limit"));
+                displayFrame.add(new JLabel("CustNo"));
+                displayFrame.add(new JLabel("CustName"));
+                displayFrame.add(new JLabel("State"));
+                displayFrame.add(new JLabel("Credit Limit"));
 
-    //             while (rs.next()) {
-    //                 displayFrame.add(new JLabel(String.valueOf(rs.getInt("CustNo"))));
-    //                 displayFrame.add(new JLabel(rs.getString("CustName")));
-    //                 displayFrame.add(new JLabel(rs.getString("State")));
-    //                 displayFrame.add(new JLabel(String.valueOf(rs.getDouble("Credit_Limit"))));
-    //             }
+                while (rs.next()) {
+                    displayFrame.add(new JLabel(String.valueOf(rs.getInt("CustNo"))));
+                    displayFrame.add(new JLabel(rs.getString("CustName")));
+                    displayFrame.add(new JLabel(rs.getString("State")));
+                    displayFrame.add(new JLabel(String.valueOf(rs.getDouble("Credit_Limit"))));
+                }
 
-    //             displayFrame.setSize(400, 400);
-    //             displayFrame.setVisible(true);
-    //         } catch (SQLException e) {
-    //             e.printStackTrace();
-    //         }
-    //     }
-    // }
+                displayFrame.setSize(400, 400);
+                displayFrame.setVisible(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static void main(String[] args) {
         new CustomerApp();
